@@ -1,8 +1,8 @@
 Nós analisamos visualmente a média dos filmes do TMDB 5000, e percebemos que seu comportamento é parecido com uma distribuição normal, com exceção do lado esquerdo do gráfico. 
 
-![histograma plotando as médias dos filmes no tmdb 5000. no eixo x, temos as notas de 0 a 9. porém, a distribuição parece populada apenas de 1 a 9. no eixo y, temos a densidade do conjunto, que vai de 0 a 0,7.](https://s3.amazonaws.com/caelum-online-public/1112+-+data-science-testes-estatisticos/Transcri%C3%A7%C3%A3o/Imagens/histogramav5.png)
+![histograma plotando as médias dos filmes no tmdb 5000. no eixo x, temos as notas de 0 a 9 em intervalos de 1. porém, a distribuição parece populada apenas de 1 a 9. no eixo y, temos a densidade do conjunto, que vai de 0 a 0,7 em intervalos de 0,1.](https://s3.amazonaws.com/caelum-online-public/1112+-+data-science-testes-estatisticos/Transcri%C3%A7%C3%A3o/Imagens/histogramav5.png)
 
-[histograma plotando as médias dos filmes no tmdb 5000. no eixo x, temos as notas de 0 a 9. porém, a distribuição parece populada apenas de 1 a 9. no eixo y, temos a densidade do conjunto, que vai de 0 a 0,7.]
+[histograma plotando as médias dos filmes no tmdb 5000. no eixo x, temos as notas de 0 a 9 em intervalos de 1. porém, a distribuição parece populada apenas de 1 a 9. no eixo y, temos a densidade do conjunto, que vai de 0 a 0,7 em intervalos de 0.1.]
 
 Agora, vamos comparar esse conjunto com os dados do MovieLens, procurando saber se esse comportamento se repete. Primeiramente, carregaremos o arquivo  `ratings.csv` e o importaremos, atribuindo essa leitura a uma variável `notas`. Feito isso, exibiremos os `5` primeiros registros desse *dataset*:
 
@@ -46,9 +46,9 @@ ax.set_title('Média de votos em filmes no MovieLens')
 
 Dessa vez, temos um gráfico com notas de `0` a `5`. Novamente, ainda que não tenhamos filmes com média `0`, temos alguns cuja média é `5`. Portanto, é de se esperar que existam alguns filmes com poucos votos.
 
-![histograma plotando as médias dos filmes no Movie Lens. no eixo x, temos notas de 0 até 5. no eixo y, temos a densidade, que vai de 0 até 1. a maior parte das médias parece se concentrar entre 2,5 e 4,5](https://s3.amazonaws.com/caelum-online-public/1112+-+data-science-testes-estatisticos/Transcri%C3%A7%C3%A3o/Imagens/histograma2.png)
+![histograma plotando as médias dos filmes no Movie Lens. no eixo x, temos notas de 0 até 5 em intervalos de 1. no eixo y, temos a densidade, que vai de 0 até 1,0 em intervalos de 0,2. a maior parte das médias parece se concentrar entre 2,5 e 4,5](https://s3.amazonaws.com/caelum-online-public/1112+-+data-science-testes-estatisticos/Transcri%C3%A7%C3%A3o/Imagens/histograma2.png)
 
-[histograma plotando as médias dos filmes no Movie Lens. no eixo x, temos notas de 0 até 5. no eixo y, temos a densidade, que vai de 0 até 1. a maior parte das médias parece se concentrar entre 2,5 e 4,5]
+[histograma plotando as médias dos filmes no Movie Lens. no eixo x, temos notas de 0 até 5 em intervalos de 1. no eixo y, temos a densidade, que vai de 0 até 1,0 em intervalos de 0,2. a maior parte das médias parece se concentrar entre 2,5 e 4,5]
 
 Com `notas.groupby("movieId").count()`, contaremos quantos votos cada um dos filmes possui nesse conjunto, atribuindo o resultado a uma variável `quantidade_de_votos_por_filme`. Com ela, faremos uma `query()` que selecionará apenas os filmes com `10` ou mais votos.
 
@@ -110,6 +110,8 @@ ax.set_title('Distribuição de nota média dos filmes do MovieLens')
 
 Repare que essa nova visualização também se assemelha àquela do TMDB, com os quartis à esquerda (`25%` e `50%`) mais densos que os da direita. 
 
-![boxplot das médias dos filmes no MovieLens. os valores no eixo x, que representam as médias, vão de 1,5 até 4,5. porém, as plotagens parecem excedê-los, tanto para a esquerda quanto para a direita, mesmo que em poucos décimos. a mediana está próxima de 3,5, e a maioria dos dados (50%) se concentra entre aproximadamente 3,1 e 3,8](https://s3.amazonaws.com/caelum-online-public/1112+-+data-science-testes-estatisticos/Transcri%C3%A7%C3%A3o/Imagens/boxplot2.png)
+![boxplot das médias dos filmes no MovieLens. os valores no eixo x, que representam as médias, vão de 1,5 até 4,5 em intervalos de 0,5. porém, as plotagens parecem excedê-los, tanto para a esquerda quanto para a direita, mesmo que em poucos décimos. a mediana está próxima de 3,5, e a maioria dos dados (50%) se concentra entre aproximadamente 3,1 e 3,8](https://s3.amazonaws.com/caelum-online-public/1112+-+data-science-testes-estatisticos/Transcri%C3%A7%C3%A3o/Imagens/boxplot2.png)
+
+[boxplot das médias dos filmes no MovieLens. os valores no eixo x, que representam as médias, vão de 1,5 até 4,5 em intervalos de 0,5. porém, as plotagens parecem excedê-los, tanto para a esquerda quanto para a direita, mesmo que em poucos décimos. a mediana está próxima de 3,5, e a maioria dos dados (50%) se concentra entre aproximadamente 3,1 e 3,8]
 
 Uma análise "visual" dessas distribuições está nos indicando que as pessoas se comportam de maneira similar. A seguir, continuaremos explorando esses dados.
