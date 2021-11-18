@@ -2,6 +2,8 @@ Nós analisamos visualmente a média dos filmes do TMDB 5000, e percebemos que s
 
 ![histograma plotando as médias dos filmes no tmdb 5000. no eixo x, temos as notas de 0 a 9. porém, a distribuição parece populada apenas de 1 a 9. no eixo y, temos a densidade do conjunto, que vai de 0 a 0,7.](https://s3.amazonaws.com/caelum-online-public/1112+-+data-science-testes-estatisticos/Transcri%C3%A7%C3%A3o/Imagens/histogramav5.png)
 
+[histograma plotando as médias dos filmes no tmdb 5000. no eixo x, temos as notas de 0 a 9. porém, a distribuição parece populada apenas de 1 a 9. no eixo y, temos a densidade do conjunto, que vai de 0 a 0,7.]
+
 Agora, vamos comparar esse conjunto com os dados do MovieLens, procurando saber se esse comportamento se repete. Primeiramente, carregaremos o arquivo  `ratings.csv` e o importaremos, atribuindo essa leitura a uma variável `notas`. Feito isso, exibiremos os `5` primeiros registros desse *dataset*:
 
 ```
@@ -45,6 +47,7 @@ ax.set_title('Média de votos em filmes no MovieLens')
 Dessa vez, temos um gráfico com notas de `0` a `5`. Novamente, ainda que não tenhamos filmes com média `0`, temos alguns cuja média é `5`. Portanto, é de se esperar que existam alguns filmes com poucos votos.
 
 ![histograma plotando as médias dos filmes no Movie Lens. no eixo x, temos notas de 0 até 5. no eixo y, temos a densidade, que vai de 0 até 1. a maior parte das médias parece se concentrar entre 2,5 e 4,5](https://s3.amazonaws.com/caelum-online-public/1112+-+data-science-testes-estatisticos/Transcri%C3%A7%C3%A3o/Imagens/histograma2.png)
+[histograma plotando as médias dos filmes no Movie Lens. no eixo x, temos notas de 0 até 5. no eixo y, temos a densidade, que vai de 0 até 1. a maior parte das médias parece se concentrar entre 2,5 e 4,5]
 
 Com `notas.groupby("movieId").count()`, contaremos quantos votos cada um dos filmes possui nesse conjunto, atribuindo o resultado a uma variável `quantidade_de_votos_por_filme`. Com ela, faremos uma `query()` que selecionará apenas os filmes com `10` ou mais votos.
 
@@ -91,6 +94,7 @@ ax.set_title('Média de votos em filmes no MovieLens')
 Com isso, teremos uma visualização que se assemelha mais à do TMDB 5000, sem os extremos da esquerda (`0.5`) e da direita (`5`). 
 
 ![mesmo histograma plotado anteriormente, dessa vez removendo as médias 0 e 5 do conjunto, o que torna a distribuição mais uniforme e semelhante a uma normal](https://s3.amazonaws.com/caelum-online-public/1112+-+data-science-testes-estatisticos/Transcri%C3%A7%C3%A3o/Imagens/histograma2v2.png)
+[mesmo histograma plotado anteriormente, dessa vez removendo as médias 0 e 5 do conjunto, o que torna a distribuição mais uniforme e semelhante a uma normal]
 
 Se traçarmos uma "mediana imaginária" por volta do  `3,5`, teremos uma curva um pouco mais abaulada à esquerda, e um pouco mais inclinada à direita - da mesma forma que no histograma do TMBD 5000. Claro, podem existir outros fatores que tornam a distribuição daquele conjunto mais "espalhada". 
 
